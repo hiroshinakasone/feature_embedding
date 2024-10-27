@@ -50,8 +50,8 @@ def main():
                 _test_losses = []
 
     plt.figure()
-    plt.plot(train_losses, label='Train Data')
-    plt.plot(test_losses, label='Test Data')
+    plt.plot(train_losses, label="Train Data")
+    plt.plot(test_losses, label="Test Data")
     plt.xlabel("Steps")
     plt.ylabel("Loss")
     plt.legend()
