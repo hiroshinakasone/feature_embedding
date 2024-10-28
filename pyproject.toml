@@ -3,6 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
+authors = [
+    { name = "NAKASONE Hiroshi" }
+]
 name = "embedding"
 version = "0.0.1"
 requires-python = ">=3.9"
@@ -11,4 +14,10 @@ dependencies = [
     "pandas",
     "scikit-learn",
     "torch",
+]
+
+[project.optional-dependencies]
+example = [
+  "matplotlib",
+  "tqdm",
 ]
