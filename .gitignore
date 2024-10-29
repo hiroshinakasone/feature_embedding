@@ -166,3 +166,6 @@ cython_debug/
 
 # Data
 data/
+
+# Binaly files
+bin/

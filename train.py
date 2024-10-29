@@ -49,6 +49,7 @@ def main():
                 test_losses.append(np.mean(_test_losses))
                 _test_losses = []
 
+    torch.save(model.state_dict(), "bin/model.pt")
     plt.figure()
     plt.plot(train_losses, label="Train Data")
     plt.plot(test_losses, label="Test Data")
