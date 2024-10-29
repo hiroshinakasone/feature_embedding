@@ -6,21 +6,21 @@ from torch.nn import CosineEmbeddingLoss
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from embedding.dataset import UserDataset
-from embedding.model import UserModel
+from embedding.dataset import MovieLensUserDataset
+from embedding.model import EmbeddingModel
 
 EPOCH = 20
 BATCH_SIZE = 32
 
 def main():
-    device = torch.device("gpu") if torch.cuda.is_available() else torch.device("cpu")
+    device = torch.device("gpu" if torch.cuda.is_available() else "cpu")
 
-    dataset = UserDataset("data/ml-latest-small/ratings.csv")
+    dataset = MovieLensUserDataset("data/ml-latest-small/ratings.csv")
     train_dataset, test_dataset = train_test_split(dataset, test_size=0.5, random_state=42, stratify=dataset.labels())
     train_loader = DataLoader(train_dataset, BATCH_SIZE, shuffle=True)
     test_dataset = DataLoader(test_dataset, BATCH_SIZE, shuffle=True)
 
-    model = UserModel(610, 128).to(device)
+    model = EmbeddingModel(610, 128).to(device)
     optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
     criterion = CosineEmbeddingLoss(reduction="mean").to(device)
 

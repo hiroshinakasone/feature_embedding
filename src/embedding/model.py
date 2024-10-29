@@ -1,9 +1,9 @@
 from torch import nn
 
 
-class UserModel(nn.Module):
+class EmbeddingModel(nn.Module):
     def __init__(self, input_size, output_size, dropout_rate=0.2):
-        super(UserModel, self).__init__()
+        super(EmbeddingModel, self).__init__()
         self._encoder = nn.Sequential(
             nn.Linear(input_size, input_size//2),
             nn.ReLU(),

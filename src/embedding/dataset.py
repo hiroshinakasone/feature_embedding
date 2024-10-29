@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from torch.utils.data import Dataset
 
 
-class UserDataset(Dataset):
+class MovieLensUserDataset(Dataset):
     def __init__(self, rating_file_path):
         self._le_movies = preprocessing.LabelEncoder()
         self._le_users = preprocessing.LabelEncoder()
