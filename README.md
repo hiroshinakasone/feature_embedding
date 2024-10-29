@@ -16,7 +16,7 @@ pip install .[example]
 
 ## Run
 ```shell
-python train.py
+python examples/train.py
 ```
 
 ## Result
