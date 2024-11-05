@@ -12,11 +12,14 @@ from embedding.model import EmbeddingModel
 EPOCH = 20
 BATCH_SIZE = 32
 
+
 def main():
     device = torch.device("gpu" if torch.cuda.is_available() else "cpu")
 
     dataset = MovieLensUserDataset("data/ml-latest-small/ratings.csv")
-    train_dataset, test_dataset = train_test_split(dataset, test_size=0.5, random_state=42, stratify=dataset.labels())
+    train_dataset, test_dataset = train_test_split(
+        dataset, test_size=0.5, random_state=42, stratify=dataset.labels()
+    )
     train_loader = DataLoader(train_dataset, BATCH_SIZE, shuffle=True)
     test_dataset = DataLoader(test_dataset, BATCH_SIZE, shuffle=True)
 

@@ -5,10 +5,10 @@ class EmbeddingModel(nn.Module):
     def __init__(self, input_size, output_size, dropout_rate=0.2):
         super(EmbeddingModel, self).__init__()
         self._encoder = nn.Sequential(
-            nn.Linear(input_size, input_size//2),
+            nn.Linear(input_size, input_size // 2),
             nn.ReLU(),
             nn.Dropout(dropout_rate),
-            nn.Linear(input_size//2, output_size),
+            nn.Linear(input_size // 2, output_size),
         )
 
     def _forward(self, x):
