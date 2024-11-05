@@ -17,7 +17,24 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+dev = [
+    "matplotlib",
+    "ruff",
+    "tqdm",
+]
 example = [
-  "matplotlib",
-  "tqdm",
+    "matplotlib",
+    "tqdm",
+]
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".venv",
+]
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "I",
 ]
